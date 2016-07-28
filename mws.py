@@ -520,8 +520,7 @@ class Products(MWS):
 					ExcludeMe=excludeme)
 		data.update(self.enumerate_param('ASINList.ASIN.', asins))
 		return self.make_request(data)
-
-        def get_lowest_priced_offers_for_sku(self, marketplaceid, skus, condition="Any", excludeme="False"):
+	def get_lowest_priced_offers_for_sku(self, marketplaceid, skus, condition="Any", excludeme="False"):
 		data = dict(Action='GetLowestPricedOffersForSKU',
 					MarketplaceId=marketplaceid,
 					ItemCondition=condition,
