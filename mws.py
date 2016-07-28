@@ -525,7 +525,6 @@ class Products(MWS):
         data = dict(Action='GetLowestPricedOffersForSKU',
                     MarketplaceId=marketplaceid,
                     ItemCondition=condition,
-                    ExcludeMe=excludeme,
                     SKU=sku)
         return self.make_request(data)
 
@@ -533,7 +532,6 @@ class Products(MWS):
         data = dict(Action='GetLowestPricedOffersForASIN',
                     MarketplaceId=marketplaceid,
                     ItemCondition=condition,
-                    ExcludeMe=excludeme,
                     ASIN=asin)
         return self.make_request(data)
 
