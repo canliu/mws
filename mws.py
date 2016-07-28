@@ -521,6 +521,22 @@ class Products(MWS):
 		data.update(self.enumerate_param('ASINList.ASIN.', asins))
 		return self.make_request(data)
 
+        def get_lowest_priced_offers_for_sku(self, marketplaceid, skus, condition="Any", excludeme="False"):
+		data = dict(Action='GetLowestPricedOffersForSKU',
+					MarketplaceId=marketplaceid,
+					ItemCondition=condition,
+					ExcludeMe=excludeme)
+		data.update(self.enumerate_param('SellerSKUList.SellerSKU.', skus))
+		return self.make_request(data)
+
+	def get_lowest_priced_offers_for_asin(self, marketplaceid, asins, condition="Any", excludeme="False"):
+		data = dict(Action='GetLowestPricedOffersForASIN',
+					MarketplaceId=marketplaceid,
+					ItemCondition=condition,
+					ExcludeMe=excludeme)
+		data.update(self.enumerate_param('ASINList.ASIN.', asins))
+		return self.make_request(data)
+
 	def get_product_categories_for_sku(self, marketplaceid, sku):
 		data = dict(Action='GetProductCategoriesForSKU',
 					MarketplaceId=marketplaceid,
